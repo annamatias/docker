@@ -4,7 +4,7 @@
 
 # Case 1: Criação de contêiners dentro do docker, utilizando imagens pensadas em arquitetura Big Data
 
-Esse projeto visa trazer informações dos meus aprendizados de forma detalhada, novos estudos e acompanhamento tecnológico.
+Esse projeto visa trazer informações dos meus aprendizados de forma detalhada, novos estudos e acompanhamento tecnologico.
 
 ---
 
@@ -30,7 +30,6 @@ Antes de começar a utilizar deste projeto, confira se atende os seguintes requi
 
 É necessário executar os comandos abaixo para executar o projeto.
 
-`!apt-get update -qq`
 
 ---
 
