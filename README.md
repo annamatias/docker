@@ -101,4 +101,4 @@ Pensando em casos de segurança, arquivos que você não queira que fique gravad
 
 ## Autor
 
-- **Anna Karoliny (@annakaroliny.tech)** - *Mentora, Desenvolvedora e Engenheira de Dados*
+- **Anna Karoliny** - _Mentora, Professora, Desenvolvedora e Engenheira de Dados_
