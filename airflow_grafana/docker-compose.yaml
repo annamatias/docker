@@ -1,0 +1,51 @@
+services:
+  airflow:
+    build: .
+    container_name: airflow
+    restart: always
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=mysql+mysqlconnector://airflow:airflow@mysql/airflow
+      - AIRFLOW__CORE__FERNET_KEY=XJQeoPno/AVHxMuJAgJWWmzm+HecSct9rARXo4hEU8I=
+      - AIRFLOW__WEBSERVER__SECRET_KEY=h9+6hXpC0Y+MNnwftnOM6AQ2ot7iFi4TSmaz5fjCQKw=
+      - AIRFLOW__WEBSERVER__RBAC=True
+      - _AIRFLOW_WWW_USER_CREATE=true
+      - _AIRFLOW_WWW_USER_USERNAME=admin
+      - _AIRFLOW_WWW_USER_PASSWORD=admin
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./logs:/usr/local/airflow/logs
+      - ./plugins:/usr/local/airflow/plugins
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - grafana
+    command: #["sh", "-c", "airflow db init && airflow webserver"] -- não funciona o 'sh'
+      - airflow
+      - standalone
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: airflow
+      MYSQL_USER: airflow
+      MYSQL_PASSWORD: airflow
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  mysql_data:
+  grafana_data:
