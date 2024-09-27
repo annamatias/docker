@@ -54,7 +54,8 @@ https://<seu-app-name>.azurewebsites.net
 🔧 # Como Fazer Atualizações
 1- Faça as alterações necessárias no código local.
 Dê commit e push para o repositório GitHub:
-bash```
+
+```
 Copy code
 git add .
 git commit -m "Atualização importante"
