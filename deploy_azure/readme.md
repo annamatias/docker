@@ -56,7 +56,6 @@ https://<seu-app-name>.azurewebsites.net
 Dê commit e push para o repositório GitHub:
 
 ```
-Copy code
 git add .
 git commit -m "Atualização importante"
 git push origin main
